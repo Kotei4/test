@@ -83,13 +83,13 @@ class Address(Field):
 #         self._value = new_value
 
 
-class Record:
-    def __init__(self, name, email=None, address=None, birthday=None):
-        self.name = Name(name)
-        self.phones = []
-        self.email = Email(email) if email else None
-        self.address = Address(address) if address else None
-        self.birthday = Birthday(birthday) if birthday else None
+# class Record:
+#     def __init__(self, name, email=None, address=None, birthday=None):
+#         self.name = Name(name)
+#         self.phones = []
+#         self.email = Email(email) if email else None
+#         self.address = Address(address) if address else None
+#         self.birthday = Birthday(birthday) if birthday else None
 
     def add_phone(self, phone):
         phone_field = Phone(phone)
