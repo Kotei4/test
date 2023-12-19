@@ -61,35 +61,35 @@ class Address(Field):
         super().__init__(value)
 
 
-class Email(Field):
-    @Field.value.setter
-    def value(self, new_value):
-        result = re.findall (r"[a-zA-Z0-9_.]+@\w+\.\w{2,3}", new_value)
-        try:
-            self._value = result[0]
-        except IndexError:
-            raise IndexError ("E-mail must be 'name@domain'")
+# class Email(Field):
+#     @Field.value.setter
+#     def value(self, new_value):
+#         result = re.findall (r"[a-zA-Z0-9_.]+@\w+\.\w{2,3}", new_value)
+#         try:
+#             self._value = result[0]
+#         except IndexError:
+#             raise IndexError ("E-mail must be 'name@domain'")
 
-class Birthday(Field):
+# class Birthday(Field):
 
-    @Field.value.setter
-    def value(self, new_value):
+#     @Field.value.setter
+#     def value(self, new_value):
 
-        try:
-            datetime.strptime(new_value, "%Y-%m-%d")
-        except ValueError:
-            raise ValueError("Invalid date format!!! Use YYYY-MM-DD.")
+#         try:
+#             datetime.strptime(new_value, "%Y-%m-%d")
+#         except ValueError:
+#             raise ValueError("Invalid date format!!! Use YYYY-MM-DD.")
 
-        self._value = new_value
+#         self._value = new_value
 
 
-class Record:
-    def __init__(self, name, email=None, address=None, birthday=None):
-        self.name = Name(name)
-        self.phones = []
-        self.email = Email(email) if email else None
-        self.address = Address(address) if address else None
-        self.birthday = Birthday(birthday) if birthday else None
+# class Record:
+#     def __init__(self, name, email=None, address=None, birthday=None):
+#         self.name = Name(name)
+#         self.phones = []
+#         self.email = Email(email) if email else None
+#         self.address = Address(address) if address else None
+#         self.birthday = Birthday(birthday) if birthday else None
 
     def add_phone(self, phone):
         phone_field = Phone(phone)
